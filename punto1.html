@@ -16,6 +16,11 @@
                  border-radius: 2px;
               
         }
+        .spa{
+            color: blue;
+            font-style: italic;
+            font-size: 12px;
+        }
         .clase_red{
             border: 2px red solid;
         }
@@ -71,35 +76,43 @@
                             <div style="height:25px;width: 49%;float: right;">
                                 <input type="number" id="edad" name="Edad" value=""></div>
 
-                            <div style="height:25px; width: 49%;float: left;">
+                            <div style="height:40px; width: 49%;float: left;">
                                 <label>Email:</label> </div>
-                            <div style="height:25px;width: 49%;float: right;">
+                            <div style="height:40px;width: 49%;float: right;">
                                 <input type="text" id="email" name="Mail" value="" >
+                                <br>
+                                <span id="spaerrores" class="spa"></span>
                             </div>
 
                             <div style="height:25px; width: 49%;float: left;">
                                 <label>Provincia:</label> </div>
                             <div style="height:25px;width: 49%;float: right;">
-                                <select id="provincia" name="Provincia" >sdsddssd</select>
+                                <select id="provincia" name="Provincia" >
+                                    <option value="Provincia">Provincia</option>
+                                </select>
                             </div>
                             
 
                             <div style="height:25px; width: 49%;float: left;">
                                 <label>Ciudad:</label> </div>
                             <div style="height:25px;width: 49%;float: right;">
-                                <select id="ciudad" name="Ciudad" >sdsddssd</select>
+                                <select id="ciudad" name="Ciudad" >
+                                    <option value="Ciudad">Ciudad</option>
+                                </select>
                             </div>
 
                             <div style="height:25px; width: 49%;float: left;">
                                 <label>Pais:</label> </div>
                             <div style="height:25px;width: 49%;float: right;">
-                                <select name="nombre" >sdsddssd</select>
+                                <select id="pais" name="Pais" >
+                                    <option value="Pais">Pais</option>
+                                </select>
                             </div>
                                             
                             <div style="height:25px; width: 49%;float: left;">
                                 <label>Usuario:</label> </div>
                             <div style="height:25px;width: 49%;float: right;">
-                                <input type="text" name="nombre" value=""></div>
+                                <input id="usuario" type="text" name="Usuario" value=""></div>
 
                             <div style="height:25px; width: 49%;float: left;">
                                 <label>Contraseña:</label> </div>
