@@ -9,9 +9,21 @@
                 display: inline-block;
                 margin-top: 3px;
             }
-              input{
-                
-           margin-top: 2px;
+              input.text{
+                height: 20px;
+                 width: 95%;
+                 margin-top: 2px;
+                 border-radius: 2px;
+              
+        }
+        .clase_red{
+            border: 2px red solid;
+        }
+        select{
+                height: 20px;
+                 width: 85%;
+                 margin-top: 2px;
+                 border-radius: 2px;
         }
         button.button_{
             border: 1px rgb(150, 155, 161) solid;
@@ -38,49 +50,64 @@
 
         </div>
         <div  style=" border: 2px yellow transparent;width: 70%;margin-left: 15%;">
-            <div style="height: 410px;border: 1px rgb(150, 155, 161) solid;background-color: hsl(0, 6%, 86%);width: 100%; border-radius: 6px;">
+            <div style="height: 510px;border: 1px rgb(150, 155, 161) solid;background-color: hsl(0, 6%, 86%);width: 100%; border-radius: 6px;">
                 <div style="height: 50PX; border: 4px PINK transparent ;width: 100%;">
                     <H2 style="text-align: CENTER;" >INFORMACION</H2>
                     <H5 style="text-align: CENTER;">Si quiere recibir la mejor incormacion, registrese:</H5>
-                    <div style="height: 260PX; border: 1px green transparent ;width: 100%;overflow: auto;">
+                    <div style="height: 360PX; border: 1px green transparent ;width: 100%;overflow: auto;">
                         <form action="recibir.html" method="get">
                             <div style="height:25px; width: 49%;float: left;">
                                 <label>Nombre:</label> </div>
                             <div style="height:25px;width: 49%;float: right;">
-                                <input type="text" min="3" name="nombre" value=""></div>
+                                <input type="text" id="nombre" min="3" name="nombre" value=""></div>
                             
                             <div style="height:25px; width: 49%;float: left;">
-                                <label>Primer Apellido:</label> </div>
+                                <label>Apellido:</label> </div>
+                            <div style="height:25px;width: 49%;float: right;">
+                                <input type="text" id="apellido" name="apellido" value=""></div>
+
+                            <div style="height:25px; width: 49%;float: left;">
+                                <label>Edad:</label> </div>
+                            <div style="height:25px;width: 49%;float: right;">
+                                <input type="number" id="edad" name="Edad" value=""></div>
+
+                            <div style="height:25px; width: 49%;float: left;">
+                                <label>Email:</label> </div>
+                            <div style="height:25px;width: 49%;float: right;">
+                                <input type="text" id="email" name="Mail" value="" >
+                            </div>
+
+                            <div style="height:25px; width: 49%;float: left;">
+                                <label>Provincia:</label> </div>
+                            <div style="height:25px;width: 49%;float: right;">
+                                <select id="provincia" name="Provincia" >sdsddssd</select>
+                            </div>
+                            
+
+                            <div style="height:25px; width: 49%;float: left;">
+                                <label>Ciudad:</label> </div>
+                            <div style="height:25px;width: 49%;float: right;">
+                                <select id="ciudad" name="Ciudad" >sdsddssd</select>
+                            </div>
+
+                            <div style="height:25px; width: 49%;float: left;">
+                                <label>Pais:</label> </div>
+                            <div style="height:25px;width: 49%;float: right;">
+                                <select name="nombre" >sdsddssd</select>
+                            </div>
+                                            
+                            <div style="height:25px; width: 49%;float: left;">
+                                <label>Usuario:</label> </div>
                             <div style="height:25px;width: 49%;float: right;">
                                 <input type="text" name="nombre" value=""></div>
 
                             <div style="height:25px; width: 49%;float: left;">
-                                <label>Segundo Apellido:</label> </div>
+                                <label>Contraseña:</label> </div>
                             <div style="height:25px;width: 49%;float: right;">
                                 <input type="text" name="nombre" value=""></div>
 
                             <div style="height:25px; width: 49%;float: left;">
-                                <label>Domicilio:</label> </div>
-                            <div style="height:25px;width: 49%;float: right;">
-                                <input type="text" name="nombre" value=""></div>
-
-                            <div style="height:25px; width: 49%;float: left;">
-                                <label>Codigo Postal:</label> </div>
-                            <div style="height:25px;width: 49%;float: right;">
-                                <input type="text" name="nombre" value=""></div>
-
-                            <div style="height:25px; width: 49%;float: left;">
-                                <label>Telefono:</label> </div>
-                            <div style="height:25px;width: 49%;float: right;">
-                                <input type="text" name="nombre" value=""></div>
-
-                            <div style="height:25px; width: 49%;float: left;">
-                                <label>e-Mail:</label> </div>
-                            <div style="height:25px;width: 49%;float: right;">
-                                <input type="text" name="nombre" value=""></div>
-
-                            <div style="height:25px; width: 49%;float: left;">
-                                <label>Confirmar e-Mail:</e-Mail>:</label> </div>
+                                <label>Confirmar Contraseña:</e-Mail>:</label> </div>
                             <div style="height:25px;width: 49%;float: right;">
                                 <input type="text" name="nombre" value=""></div>
                             
