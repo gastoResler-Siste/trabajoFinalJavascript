@@ -1,0 +1,49 @@
+<html lang="es">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <head>
+        <title> prueba clase8 con HTML EVENTOS </title>
+       
+        <style>
+            .esconder{ display: none; }
+            
+            .estiloDiv{
+                background-color: red;
+                font-size: 18px;
+            }
+
+            #myDiv{
+                background-color: rgb(23, 131, 39);
+                font-size: 22px;
+            }
+        </style> 
+    </head>
+
+    <body>
+        <h3>prueba_clase8.js</h3>
+        <div id="texto_div" style="background-color: blueviolet;">
+            sdsdsd
+        </div>
+        <div id="texto_div2" class="estiloDiv" >
+            sdsdsdsdsdsdsd
+        </div>
+        <button id="botonEscondeDiv" > Ocultar Div Violeta</button>
+
+    <footer>
+        <script>
+                const miBoton=document.getElementById('botonEscondeDiv')
+
+
+
+
+            const div1= document.getElementById("texto_div2");
+            div1.classList.toggle="esconder"
+            
+            function llamarStilo(){
+
+            }
+
+        </script>
+    </footer>   
+    </body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo de formulario con JavaScript</title>
+</head>
+<body>
+	<h1>Formulario de contacto</h1>
+	<form id="contactForm">
+		<label for="name">Nombre:</label>
+		<input type="text" id="name" name="name"><br><br>
+
+		<label for="email">Correo electrónico:</label>
+		<input type="email" id="email" name="email"><br><br>
+		<span class="error" id="emailError"></span><br><br>
+
+		<label for="subject">Asunto:</label>
+		<input type="text" id="subject" name="subject"><br><br>
+
+		<label for="message">Mensaje:</label>
+		<textarea id="message" name="message" rows="5" cols="40"></textarea><br><br>
+
+		<button type="submit">Enviar</button>
+	</form>
+
+	<script>
+		// Obtener el formulario y sus elementos
+		const contactForm = document.getElementById("contactForm");
+		const nameInput = document.getElementById("name");
+		const emailInput = document.getElementById("email");
+		const subjectInput = document.getElementById("subject");
+		const messageInput = document.getElementById("message");
+
+		// Agregar un event listener para el submit del formulario
+		contactForm.addEventListener("submit", function(event) {
+			// Prevenir el envío del formulario por defecto
+			event.preventDefault();
+
+			// Validar los campos del formulario
+			if (nameInput.value === "" || emailInput.value === "" || subjectInput.value === "" || messageInput.value === "") {
+				alert("Por favor complete todos los campos.");
+				cartel();
+				return;
+			}
+ 
+		});
+
+		// Agregar un event listener para el input del nombre
+		nameInput.addEventListener("input", function(event) {
+			// Validar que el nombre no sea demasiado largo
+			if (nameInput.value.length > 10) {
+				nameInput.setCustomValidity("El nombre no puede tener más de 50 caracteres.");
+			} else {
+				nameInput.setCustomValidity("");
+			}
+		});
+
+		// Agregar un event listener para el input del correo electrónico
+		emailInput.addEventListener("input", function(event) {
+			console.log('input event fired');
+			// Validar que el correo electrónico tenga un formato válido
+			if (!/^\S+@\S+\.\S+$/.test(emailInput.value)) {
+				emailInput.setCustomValidity("Por favor ingrese un correo electrónico válido.");
+				emailError.textContent = 'Correo electrónico no válido';
+    			emailError.classList.add('visible');
+			} else {
+				emailInput.setCustomValidity("");
+				emailError.textContent = '';
+    			emailError.classList.remove('visible');
+			}
+		});
+		function cartel(){
+			alert("Mensaje Funcion cartel");
+			return;
+		};
+
+	</script>
+</body>
+</html>

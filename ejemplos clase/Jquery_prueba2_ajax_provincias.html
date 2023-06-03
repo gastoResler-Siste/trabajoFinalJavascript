@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../jquery-3.7.0.min.js"></script>
+  <script>
+    function removeOptions(selectElement) { //funcion para limpiar el select
+      let l = selectElement.options.length-1; 
+      for(let i = l; i >= 0; i--) { 
+        selectElement.remove(i); 
+      }
+    } // using the function: removeOptions(document.getElementById('DropList'));
+
+
+
+    $(document).ready(function(){
+
+        $.ajax({
+        url: "https://apis.datos.gob.ar/georef/api/provincias",
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+          var select = $("#userSelect");
+          for (var i = 0; i < data.provincias.length; i++) {
+            var option = $("<option>").text(data.provincias[i].nombre).val(data.provincias[i].id);
+            select.append(option);
+          }
+        },
+        error: function() {
+          alert("Error al obtener los datos de la API");
+        }
+        });
+
+
+        $('#userSelect').change(function() {
+
+          var select1 = $("#userSelect option:selected").text();
+          let valor= $("#userSelect").val();
+
+          let cantProv=document.getElementById("userSelect").options.length
+
+          $('#spaProvincia').text(select1+' (' + cantProv + ')');
+            //alert('seleccion ' + select1 + ' y valor:' + valor );
+
+            if ($('#spaProvincia')!='Seleccione una provincia'){
+              removeOptions(document.getElementById('locaSelect'));//llamo a funcion para limpiar el select de localidades
+
+              $.ajax({ 
+                  
+                  url: 'https://apis.datos.gob.ar/georef/api/municipios?provincia=' + valor + '&campos=id,nombre&max=1000',
+                  method: "GET",
+                  dataType: "json",
+
+                  success: function(data) {
+                  var select1 = $("#locaSelect");
+                  $('#spaProvincia').append('  ('+ data.municipios.length +') localidades')
+
+                  for (var i = 0; i < data.municipios.length; i++) {
+                      var option = $("<option>").text(data.municipios[i].nombre).val(data.municipios[i].id);
+                      select1.append(option);
+
+                  }
+                  },
+                  error: function() {
+                  alert("Error al obtener los datos de la API");
+                  }
+              });
+
+
+
+
+            };
+        });
+
+
+
+
+
+
+
+    });
+
+
+
+  
+
+
+
+
+  </script>
+</head>
+<body>
+  <select id="userSelect">
+    <option value="">Seleccione una provincia</option>
+    
+  </select>
+  <span id="spaProvincia"></span>
+  <br><br>
+  <select id="locaSelect">
+    <option value="">Seleccione una localidad</option>
+    
+    
+  </select>
+  <br><br>
+    
+
+
+
+
+
+
+</body>
+</html>

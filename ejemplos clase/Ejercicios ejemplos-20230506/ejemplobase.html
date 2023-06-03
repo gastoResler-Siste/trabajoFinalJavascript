@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo de formulario con JavaScript</title>
+</head>
+<body>
+	<h1>
+		<input type="text" id="my-input">
+		<button id="my-button" onclick="validar()">Haz clic aquí</button>
+	</h1>
+	
+
+	<script>
+
+    document.getElementById('my-input').onkeydown = function(event) {
+	if (event.keyCode === 13) {
+		alert("Usted ha ingresado Enter");
+	} else {
+		console.log(event.keyCode);
+	}
+};
+
+function validar() {
+	alert("Usted ha hecho clic");
+}
+
+	</script>
+</body>
+</html>

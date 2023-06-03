@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+    let i = 0;
+    let textoOriginal = $("#contenedor").text();
+      $("#cambiar").click(function(){
+        $("#contenedor").text("Nuevo texto!" + i);
+        i++;
+      });
+    });
+  </script>
+</head>
+<body>
+  <button id="cambiar">Cambiar texto</button>
+  <button id="original">Cambiar a texto original</button>
+  <div id="contenedor">Texto original</div>
+</body>
+</html>

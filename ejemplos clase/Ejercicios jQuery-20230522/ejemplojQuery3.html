@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .resaltado {
+      color: red;
+      font-weight: bold;
+      font-size: larger;
+    }
+  </style>
+ <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#resaltar").click(function(){
+        $("#contenedor").addClass("resaltado");
+      });
+
+      $("#opacar").click(function(){
+        $("#contenedor").removeClass("resaltado");
+      });
+    });
+  </script>
+</head>
+<body>
+    <h1>Cambiar estilos</h1>
+  <button id="resaltar">Resaltar</button>
+  <button id="opacar">Opacar</button>
+  <div id="contenedor">Texto a resaltar</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+     
+        $("#ocultar").click(function(){
+            $("#elemento").hide();
+        });
+
+        $("#mostrar").click(function(){
+            $("#elemento").show();
+        });
+    
+    });
+  </script>
+</head>
+<body>
+  <button id="ocultar">Ocultar</button>
+  <button id="mostrar">Mostrar</button>
+  <div id="elemento">¡Hola, soy un elemento oculto!</div>
+</body>
+</html>

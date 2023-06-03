@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de JavaScript en HTML</title>
+    <style>
+      .esconder {
+        display: none;
+      }
+
+      .estiloDiv {
+        background:red;
+        font-size: 45px;
+      }
+
+      #miDiv {
+        background:green;
+        font-size: 45px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="myDiv" class="estiloDiv">
+        Ejemplos de las maneras que se ocultan un div
+    </div>
+  
+    <div id="myDiv2" class="estiloDiv">
+      Ejemplos de las maneras que se ocultan un div 2
+  </div>
+    <script>
+      const myDiv = document.getElementById('myDiv');
+      //Opcion 1
+      //myDiv.style.display = 'none'; // Oculta el elemento
+      
+      //Opcion 2
+      //myDiv.classList.toggle('esconder'); 
+      
+      //Opcion 3
+     // myDiv.classList.add('esconder');
+      //myDiv.classList.remove('esconder');
+      
+      //Opcion 4
+      //myDiv.style.visibility = 'hidden';
+      //myDiv.style.visibility = 'visible';
+    </script>
+   
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+    <script src="../jquery-3.7.0.min.js"></script>
+ 
+ <script>
+    
+    $(document).ready(function(){      
+        $("#resaltar").click(function(){
+            $("#elemento1").text("dsfghfdsfghgfd");
+            $("#elemento1").addClass("resaltado");
+        });
+      
+
+
+    });
+
+  </script>
+    <style>
+        .resaltado {
+            color:red;
+            font-weight: bold;
+        }
+
+    </style>  
+
+
+<body>
+    
+    <button id="resaltar">resalrar div</button>
+        
+    <div id="elemento1"> �Hola, soy un elemento oculto!</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#obtenerChiste").click(function(){
+        // Realizar la petición AJAX a la API de Chuck Norris Jokes
+        $.ajax({
+          url: "https://api.chucknorris.io/jokes/random",
+          method: "GET",
+          dataType: "json",
+          success: function(data) {
+            // Mostrar el chiste en el elemento de resultado
+            $("#resultado").text(data.value);
+          },
+          error: function() {
+            alert("Error al obtener el chiste");
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <button id="obtenerChiste">Obtener Chiste</button>
+  <div id="resultado"></div>
+</body>
+</html>

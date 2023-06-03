@@ -1,0 +1,28 @@
+<html lang="es">
+
+    <head>
+        <title>Prueba jQuery</title>
+        <script src="jquery-3.7.0.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Prueba jQuery</h1>
+        <ul id="provincias"></ul>
+        <script>
+            $.ajax({
+                type: "GET",
+                url: "https://apis.datos.gob.ar/georef/api/provincias",
+                dataType: "json",
+                success: function (data) {
+                    let provincias = data.provincias;
+                    for(let i = 0; i < provincias.length; i++) {
+                        $('#provincias').append($("<li>").text(provincias[i].nombre).val(provincias[i].id));
+                    }
+                },
+                error: function() {
+                    alert("ERROR");
+                }
+            });
+        </script>
+    </body>
+</html>

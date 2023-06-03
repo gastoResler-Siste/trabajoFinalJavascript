@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      $.ajax({
+        url: "https://jsonplaceholder.typicode.com/users",
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+          var select = $("#userSelect");
+
+          for (var i = 0; i < data.length; i++) {
+            var option = $("<option>").text(data[i].name + "-" + data[i].username).val(data[i].id);
+            select.append(option);
+          }
+        },
+        error: function() {
+          alert("Error al obtener los datos de la API");
+        }
+      });
+
+    });
+
+  </script>
+</head>
+<body>
+  <select id="userSelect">
+    <option value="">Seleccione un usuario</option>
+  </select>
+  
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../jquery-3.7.0.min.js"></script>
+  <script>
+    function removeOptions(selectElement) { //funcion para limpiar el select
+      let l = selectElement.options.length-1; 
+      for(let i = l; i >= 0; i--) { 
+        selectElement.remove(i); 
+      }
+    } // using the function: removeOptions(document.getElementById('DropList'));
+
+
+
+    $(document).ready(function(){
+
+        $.ajax({
+        url: "https://jsonplaceholder.typicode.com/users",
+        method: "GET",
+        dataType: "json",
+        success: function(data) {//data es un objeto JSON
+          var select = $("#userSelect");
+          for (var i = 0; i < data.length; i++) {
+            var option = $("<option>").text(data[i].name).val(data[i].id);
+            select.append(option);
+          }
+        },
+        error: function() {
+          alert("Error al obtener los datos de la API");
+        }
+        });
+
+
+        $('#userSelect').change(function() {
+
+            var select1 = $("#userSelect option:selected").text();
+          //var select1 = $("#userSelect").text(); es iguall que el anterior
+          let valor= $(this).val();   //EL THIS ES IGUAL QUE -->   $("#userSelect")
+
+          let cantProv=document.getElementById("userSelect").options.length
+
+          $('#spaDatos').text(select1+'  id(' + valor + ')');
+            //alert('seleccion ' + select1 + ' y valor:' + valor );
+
+            if ($('#spaDatos')!='Seleccione un Usuarios'){
+              removeOptions(document.getElementById('datoSelect'));//llamo a funcion para limpiar el select de localidades
+
+              $.ajax({ 
+                  
+                  url: 'https://jsonplaceholder.typicode.com/posts',
+                  method: "GET",
+                  dataType: "json",
+                  data:{
+                  userId: valor},
+
+                  success: function(data) {
+                  var select1 = $("#datoSelect");
+                  $('#spaDatos').append('  ('+ data.length +') postsss')
+
+                  for (var i = 0; i < data.length; i++) {
+                      var option = $("<option>").text(data[i].title).val(data[i].id);
+                      select1.append(option);
+
+                  }
+                  },
+                  error: function() {
+                  alert("Error al obtener los datos de la API");
+                  }
+              });
+            };
+        });//$('#userSelect')
+
+
+
+
+
+
+
+    });
+
+
+
+  
+
+
+
+
+  </script>
+</head>
+<body>
+  <select id="userSelect">
+    <option value="">Seleccione un Usuarios
+    </option>
+    
+  </select>
+  <span id="spaDatos"></span>
+  <br><br>
+  <select id="datoSelect">
+    <option value="">Seleccione un puesto</option>
+    
+    
+  </select>
+  <br><br>
+    
+
+<span id="spaArticulo">
+
+</span>
+
+
+
+
+</body>
+</html>

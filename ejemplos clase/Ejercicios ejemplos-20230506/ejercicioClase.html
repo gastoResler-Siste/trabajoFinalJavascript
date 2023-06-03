@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <style>
+        .alternar {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function alternar() {
+            document.getElementById('div1').classList.toggle('alternar');
+        }
+    </script>
+    <button onclick="alternar()">Agregar/Quitar</button>
+    <div class="alternar" id="div1">
+        <p>Texto en div</p>
+    </div>
+</body>
+
+</html>

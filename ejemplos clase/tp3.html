@@ -1,0 +1,371 @@
+<html>
+    <head>
+        <title> Trabajo Practico 3 </title>
+        
+    </head>
+    <style>
+            .estilo{
+                background-color: rgb(192, 235, 235) ;
+                
+            }
+            
+    </style>
+    
+    
+    
+    <body style="width:800px ;">
+        <H1>Trabajo Practico 3 - Resler Gaston</H1>
+        <h3 style="color: red;">Primera Parte</h3>
+        <br>
+        <span> 1. Crea  un  arreglo  de  objetos  que  representen  estudiantes  con  las  propiedades
+            "nombre",  "edad"  y  "carrera".  Luego,  crea  una  función  que  tome  este  arreglo  como 
+            argumento  y  devuelva  el  promedio  de  edad  de  los  estudiantes.</span><br>
+            <input type="button" class="estilo" onclick="fBoton1()" id="idboton1" value="Ver Actividad 1"></INPUT><br>
+
+            <span id="idSpan1" style="color: green;"></span>  
+        <br><br>
+         <span> 2. Crea  un  objeto  que  represente  una  cuenta  bancaria  con  las  propiedades  "nombre", 
+            "saldo"  y  "tipo  de  cuenta".  Luego,  crea  una  función  que  tome  este  objeto  como 
+            argumento  y  devuelva  el  texto  "Tu  saldo  es  de  [saldo]  en  tu  cuenta  [tipo  de  cuenta]".</span>
+            <input type="button" onclick="fBoton2()"  class="estilo" id="idboton2" value="Ver Actividad 2"><br>
+            <span id="idSpan2" style="color: green;"></span> 
+
+        <br><br>
+        <span>3. Crea una función que tome un arreglo de objetos que representen libros con las
+            propiedades "título", "autor" y "año de publicación". Luego, ordena el arreglo de
+            libros por año de publicación de menor a mayor</span> <br>
+            <input type="button" onclick="fBoton3()" id="idboton3"  class="estilo" value="Ver Actividad 3"><br>
+            <span id="idSpan3" style="color: green;"></span> 
+                <br><br>
+
+        <span> 4. Crea  una  función  que  tome  un  arreglo  de  objetos  que  representen  productos  con  las 
+            propiedades  "nombre",  "precio"  y  "descuento".  Luego,  calcula  el  precio  final  de  cada 
+            producto  después  de  aplicar  el  descuento  y  devuelve  un  nuevo  arreglo  con  los 
+            precios  finales..</span><br>
+            <input type="button"  class="estilo" onclick="fBoton4()" id="idboton4" value="Ver Actividad 4"> <br>
+            <span id="idSpan4" style="color: green;"></span>
+
+
+        <h3 style="color: red;">Segunda Parte</h3>
+        <span>1. Crear un Formulario H T M L que incluya los siguientes campos: Nombre, correo electronico y telefono. 
+            Añadir un boton 'Validar'. Al hacer clic en el boton, el programa debe verificar que los tres campos se 
+            han completado, el telofono tienne menos de 11 digitos y el correo electronico contiene la '@'. 
+            si todas las condiciones se cumplen, mostrar un mensaje que diga:. 'La informacion es Correcta', de lo 
+            contrario mostrar 'Por favor intente Nuevamente'.</span> 
+           <br> <br>
+           <span>
+            <label for="name" style="text-align: left;  float: left;"  >Nombre:</label>
+            <input id="textNombre" type="text" size="35" placeholder="Ingrese su Nombre" name="Nombre_contacto" style="height: 25px;"><br>
+            <label for="name" style="margin-left: 20pt ;margin-top: 15px ; float: left;">Mail:</label>
+            <input id="textMail" size="35" type="text" placeholder="ingrese un mail valido" name="mail_contacto" style="height: 25px;margin-top: 15px; "><br>
+            <br>
+            <label for="name" style="margin-top: 0px ;float: left;">telefono:</label>
+            <input id="textTelefono" type="number" ></input><br>
+            <span id="spanMensaje" style="color: brown; font-style: italic; text-align: left ;font-size: 13px;"> </span><br>
+            <input type="submit"  class="estilo" id="idboton5" onclick="fBoton5()" value="Validar"> <!---->
+            <span id="idSpan5" style="color: green;"></span>
+
+
+
+
+           </span>
+            
+
+
+            <br><br>
+        <span>2. Crear  un  área  de  texto  HTML  y  solicitar  al  usuario  que  ingrese  un  texto.  Al  presionar 
+            la  tecla  Enter,  el  programa  deberá  mostrar  la  cantidad  de  letras  que  tiene  el  texto 
+            ingresado  en  la  pantalla.</span> 
+            <br><br>
+            <label style="color: brown;"> Ingrese un texto y presione Enter</label><br>
+            <textarea name="" id="textArea_ej2" cols="30" rows="5"></textarea>
+            <!--<input type="button" onclick="fBoton6()"  id="idboton6" value="Ver Actividad 2 SP"> -->
+            <span id="idSpan6" style="color: green;"></span>
+                <br><br>
+               
+        <span>3. Crear un documento HTML que contenga un DIV con el fragmento de un texto 
+            cualquiera. Crear un botón que si el texto esta visible que diga “Ocultar” y de lo 
+            contrario que diga “Mostrar”. Al hacer click tiene que hacer dicha acción.</span> <br>
+            <input type="button"  class="estilo" onclick="fBoton7()" id="idboton7" value="Ocultar div"> <br><br>
+            <div id="divEj3" style="border: 2px red solid; width: 200px;">div de prueba</div><br>
+            
+            <span id="idSpan7" style="color: green;"></span>
+            
+
+    </body>
+    <footer>
+            <script>
+
+                const cSpan1=document.getElementById("idSpan1");
+                const cSpan2=document.getElementById("idSpan2");
+                const cSpan3=document.getElementById("idSpan3");
+                const cSpan4=document.getElementById("idSpan4");
+                const cSpan5=document.getElementById("idSpan5");
+                const cSpan6=document.getElementById("idSpan6");
+                const cSpan7=document.getElementById("idSpan7");
+                
+
+                function inicializar(){
+                    cSpan1.textContent="";
+                    cSpan2.textContent="";
+                    cSpan3.textContent="";
+                    cSpan4.textContent="";
+                    cSpan5.textContent="";
+                    cSpan6.textContent="";
+                    cSpan7.textContent="";
+                };
+
+
+                function fBoton1(){
+                    //alert("ACTIVIDAD 1")
+                    inicializar();
+
+                    let f_estudiantes=[];
+                    
+                      f_estudiantes.push({nombre:"dario mendez",edad: 26,carrera:"Tecnico en guitarra"});
+                      f_estudiantes.push({nombre:"carlos ortega",edad:23,carrera:"Tecnico en Mate amargo"});
+                      f_estudiantes.push({nombre:"ana maria marshal",edad:34,carrera:"Tecnico en pc"});
+                      f_estudiantes.push({nombre:"lujan rodriguez",edad:36,carrera:"Tecnico en celulares"});
+                      f_estudiantes.push({nombre:"Marcelo de los Rios",edad:17,carrera:"Tecnico en asistencia tecnica a Viajero"});
+                      let summa=0;
+                      //cSpan1.innerHTML="";
+
+                   for (let i=0;i<f_estudiantes.length;i++){
+                        cSpan1.innerHTML+=i +'    ' + f_estudiantes[i].nombre + ', Edad: ' + f_estudiantes[i].edad + ' y estudia ' + f_estudiantes[i].carrera + '<br>';
+                        summa+=parseInt(f_estudiantes[i].edad);
+                        //cSpan1.innerHTML +="dsfdgdfgdfgfsdfsdf";
+                        /**/
+                        if (i==f_estudiantes.length-1){
+                            let prom=0;
+                            prom=parseFloat(summa)/parseFloat(f_estudiantes.length);
+                            cSpan1.innerHTML+= '<br>';
+                            cSpan1.innerHTML+='El Promedio es: '+ prom + '<br>';
+                        }
+                   };
+
+                };
+                function fBoton2(){
+                    //alert("ACTIVIDAD 2");
+                    inicializar();
+                    
+                    let f_cuenta=[]
+
+                    f_cuenta.push ({nombre:"Pedro",saldo:2345,tipoCuenta:"CUENTA_CTE"});
+                    f_cuenta.push({nombre:"Juan",saldo:1345,tipoCuenta:"CUENTA_CTE"});
+                    f_cuenta.push({nombre:"Dario",saldo:4500,tipoCuenta:"CAJA de AHORROS"});
+                    f_cuenta.push({nombre:"Gaston",saldo:5567,tipoCuenta:"CUENTA_CTE"});
+                    f_cuenta.push({nombre:"german",saldo:2500,tipoCuenta:"CUENTA_CTE"});
+                    f_cuenta.push({nombre:"omar",saldo:1500,tipoCuenta:"CUENTA_CTE U$S"});
+                    f_cuenta.push({nombre:"ernesto",saldo:300,tipoCuenta:"CUENTA_CTE"});
+                    f_cuenta.push({nombre:"thomas",saldo:4500,tipoCuenta:"CUENTA_CTE"});
+                    //cSpan2.innerHTML='';
+                    for (i=0;i<f_cuenta.length;i++){
+                        cSpan2.innerHTML+= 'Sr/a:  <b>' + f_cuenta[i].nombre + '</b>, Su saldo es: ' + f_cuenta[i].saldo + ' de su ' + f_cuenta[i].tipoCuenta + '<br>';
+                    }
+
+                };
+
+                function fBoton3(){
+                    //alert("ACTIVIDAD 3")
+                    inicializar();
+                    
+                    function F_libro(pNombre,pAnio,pAutor){
+                        this.Ltitulo=pNombre;
+                        this.Lanio=pAnio;
+                        this.lAutor=pAutor;
+                    }
+
+                    var libro1=new F_libro("harry poter",1789,"frank guetter");
+                    var libro2=new F_libro("harry poter2",1889,"la mona jimenez")
+                    var libro3=new F_libro("harry poter 3",1999,"ke personaje")
+                    var libro4=new F_libro("plantas1",1569,"l gamte")
+                    var libro5=new F_libro("harlos",1788,"brian oconor")
+                    var libro6=new F_libro("poter",1112,"dario guevara")
+                    var libro7=new F_libro("gretel",1777,"juan herrero")
+                    var libro8=new F_libro("poter",1896,"frank2")
+                    var libro9=new F_libro("tincho 2",1459,"frank guetter Junior")
+                    var libro10=new F_libro("tincho 4",1289,"guetter fredi")
+                    
+                    var a_libro=[libro1,libro2,libro3,libro4,libro5,libro6,libro7,libro8,libro9,libro10]
+                    var a_libro_orden=[];var a_libro_orden_asc=[];
+                    for (i=0;i<a_libro.length;i++){
+                       cSpan3.innerHTML+=(i+1) +'  ' + a_libro[i].Ltitulo + '(' + a_libro[i].Lanio + ') de autor: ' + a_libro[i].lAutor.toUpperCase()  + '<br>';
+                    };
+                    
+                    
+                    const moonLanding = new Date();
+
+                    let anioMayor=moonLanding.getFullYear();
+                    let anioMenor=0
+                    let indiceAnt=-1
+                    
+                    for (let i=0;i<a_libro.length;i++){
+                       if (a_libro[i].Lanio==anioMayor){
+                            a_libro_orden.push (a_libro[i]);
+                            indiceAnt=i;
+                            a_libro.splice(i,1);
+                            i=i-1
+                       } else if (a_libro[i].Lanio<=anioMayor){
+                            let mayTmp=a_libro[i].Lanio
+                            anioMenor=a_libro[i].Lanio
+                            let indice=-1
+                            for (let j=i;j<a_libro.length;j++){    
+                                if (a_libro[j].Lanio<anioMenor){
+                                    anioMenor=a_libro[j].Lanio
+                                   
+                                }else if(a_libro[j].Lanio>=mayTmp){
+                                    mayTmp=a_libro[j].Lanio
+                                    
+                                    indice=j
+                                    anioMayor=mayTmp
+                                };
+
+
+                                }
+
+                                if (indice>-1){
+                                    a_libro_orden.push (a_libro[indice]);
+                                    indiceAnt=indice;
+                                    a_libro.splice(indice,1)
+                                    i=i-1
+                                }
+                    }
+                    };
+                    cSpan3.innerHTML+='<br><br> Ordenados de mayor a menor <br>';
+                   
+                    for (i=0;i<a_libro_orden.length;i++){
+                       cSpan3.innerHTML+=(i+1) +' (<b>' + a_libro_orden[i].Lanio + '</b>)  ' + a_libro_orden[i].Ltitulo + '                     de autor: <b>' + a_libro_orden[i].lAutor.toUpperCase() + '<br>';
+                    };
+                    cSpan3.innerHTML+='<br><br> Ordenados de Menor a Mayor<br>';
+                    for (i=a_libro_orden.length-1;i>-1;i--){
+                        cSpan3.innerHTML+=((i-a_libro_orden.length)*-1) +' (<b>' + a_libro_orden[i].Lanio + '</b>)  ' + a_libro_orden[i].Ltitulo + '                     de autor: <b>' + a_libro_orden[i].lAutor.toUpperCase() + '<br>';
+                    };
+
+
+
+                };
+                function fBoton4(){
+                    inicializar();
+
+                    let F_producto =[{
+                        nombre:"Libro haari poter 2",
+                        precio:788,
+                        descuento:10,
+                        precioVenta: function(){
+                                precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);
+                                return precioVenta;
+                            }
+                    }]  
+
+                    F_producto.push ({nombre:"Libro jardineris",precio:345,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+                    F_producto.push ({nombre:"Mate madera",precio:899,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+                    F_producto.push ({nombre:"jarra loca",precio:655,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+                    F_producto.push ({nombre:"termo",precio:2345,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+                    F_producto.push ({nombre:"monitor",precio:45000,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+                    F_producto.push ({nombre:"notebook",precio:123000,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+                    F_producto.push ({nombre:"silla",precio:3400,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+
+                            
+                    cSpan4.innerHTML+= "";
+                     cSpan4.innerHTML+='Los productos son: <br>';
+                                         for (let i=0;i<F_producto.length ;i++){  
+                        cSpan4.innerHTML+='<b>' + F_producto[i].nombre.toLocaleUpperCase() + '</b>  cuesta: $ ' + F_producto[i].precio + '    y con el descuento queda:   <b><span style="color:blue">: $ ' + F_producto[i].precioVenta() + '</span> <br>';
+                    }
+
+                };
+
+                function fBoton5(){
+
+                    let stt="ACTIVIDAD5";let sttMensaje="";
+                    let validar=false;
+                    const cNombre=document.getElementById("textNombre");
+                    const cMail=document.getElementById("textMail");
+                    const cTelefono=document.getElementById("textTelefono");
+                    const cSpanMensajeForm=document.getElementById("spanMensaje");
+                    cSpanMensajeForm.textContent="";
+
+                    if (cNombre.textContent!=""){
+                        validar=true
+                    }else{
+                        validar=false;
+                        sttMensaje='El campo Nombre esta vacio <br>';    
+                    }
+                    
+                    if ((!/^\S+@\S+\.\S+$/.test(cMail.value))==false && validar==true){
+                        validar=true
+                    }else{
+                        validar=false;
+                        sttMensaje+='El campo Mail No es correcto, debe contener  el @ <br>'; 
+                    }
+
+                    if ((cTelefono.value.length<=11 && cTelefono.value.length>0) && validar==true){
+                        validar=true
+                    }else{
+                        validar=false;
+                        sttMensaje+='El campo Telefono debe tener Menos de 11 digitos <br>'; 
+                    }
+                    
+                    if(validar==true){
+                        stt+='     La informacion es correcta'
+                    }else{
+                        stt+='      Por favor intente Nuevamente'
+                        
+                        cSpanMensajeForm.innerHTML += sttMensaje;
+                    }   
+                    alert(stt);
+                    
+
+                };
+             
+                function fBoton6(){
+                    alert("ACTIVIDAD 1")
+                };
+                function fBoton7(){
+                                    
+
+                    const cDivEj3=document.getElementById("divEj3");
+                    const cBotonEj3=document.getElementById("idboton7")
+
+                    if (cBotonEj3.value=='Ocultar div'){
+                        cBotonEj3.value='Mostrar Div';
+                        document.getElementById("divEj3").style.display="none";
+
+                    }else  if (cBotonEj3.value=='Mostrar Div'){
+                        cBotonEj3.value='Ocultar div';
+                        document.getElementById("divEj3").style.display="block";
+                    }
+
+
+
+
+
+
+                };
+                function fBoton8(){
+                    alert("ACTIVIDAD 1")
+                };
+
+                const cTexAreaEJ2=document.getElementById("textArea_ej2");
+                cSpan6.textContent=""
+
+                cTexAreaEJ2.addEventListener('keydown',function(event){
+                    if (event.keyCode==13){
+                        //alert("enter Presionado");
+                        cSpan6.textContent='El texto tiene ' + cTexAreaEJ2.value.length + ' caracteres';
+                    }else{
+                        cSpan6.textContent='';
+                    }
+                });
+               
+                        
+                    
+                
+
+
+
+            </script>
+
+
+            
+    </footer>
+</html>
