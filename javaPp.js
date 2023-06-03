@@ -1,14 +1,14 @@
-//java  hola
+//Pagina de inicio
 
 
 
 $(document).ready(function(){
      
       
-    $("#nombre").click(function(){
+    $("#botonComenzar").click(function(){
        // $("#nombre").val("otro texto")
       
-       alert( $("#nombre").val())
+       alert( "Bienvenido al Juego")
     });
   
   
