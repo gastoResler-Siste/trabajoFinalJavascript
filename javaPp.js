@@ -6,10 +6,10 @@ let F_adiv =[{
    opciones:["la tiza","El agujero","El rencor","Un Dico Rigido"],
    respuesta:1,
    }];
-   F_adiv.push ({pregunta:"¿Qué es lo que se hace de noche, que no se puede hacer de día?",Opciones:["Trasnochar","Delinquir","Tomar Sol","Ir al colegio"],respuesta:0}) 
-   F_adiv.push ({pregunta:"El roer es mi trabajo, el queso mi aperitivo y el gato ha sido siempre mi más temido enemigo.",Opciones:["Paloma","Mosca","Perro","Raton"],respuesta:3}) 
-   F_adiv.push ({pregunta:"Me rascan continuamente de forma muy placentera, mi voz es muy bien timbrada y mi cuerpo de madera.",Opciones:["La Flauta","El bombo","La Guitarra","La pandereta"],respuesta:1}) 
-   F_adiv.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",Opciones:["El Osoo Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
+   F_adiv.push ({pregunta:"¿Qué es lo que se hace de noche, que no se puede hacer de día?",opciones:["Trasnochar","Delinquir","Tomar Sol","Ir al colegio"],respuesta:0}) 
+   F_adiv.push ({pregunta:"El roer es mi trabajo, el queso mi aperitivo y el gato ha sido siempre mi más temido enemigo.",opciones:["Paloma","Mosca","Perro","Raton"],respuesta:3}) 
+   F_adiv.push ({pregunta:"Me rascan continuamente de forma muy placentera, mi voz es muy bien timbrada y mi cuerpo de madera.",opciones:["La Flauta","El bombo","La Guitarra","La pandereta"],respuesta:1}) 
+   F_adiv.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",opciones:["El Osoo Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
 
 
 
@@ -78,19 +78,34 @@ $(document).ready(function(){
    };       
    $("#botonSiguinte").click(function(){
       // $("#nombre").val("otro texto")
+     // var radioValue = $("#radio" +nroAdivinanza+" option:selected").text();
+      //let valor= $("#radio" +nroAdivinanza).val();
+      let sele = $('input[name="radios"]:checked').val();
+      if (sele==undefined){
+         alert("Seleccione una respuesta")
+      }else{
+         if (F_adiv[nroAdivinanza].respuesta==sele){
+            resultado++;
+            $("#emNroAdiv").text(resultado);
+         }
 
+         siguinteAdivinanza()
+      }
 
-
-
-      siguinteAdivinanza()
+      
    });
 
    function siguinteAdivinanza(){
          
       if (nroAdivinanza==-1){
-         alert(nroAdivinanza)
+        // alert(nroAdivinanza)
          
-         
+           
+      }else{
+         for (i=1;i=4;i++){
+            $("#radio").remove();
+            $("#pe").remove();
+         }
       }
 //actualizar el nro de adivinanza en el circulo
 
@@ -106,8 +121,8 @@ $(document).ready(function(){
          //contRadio    
          let valu= F_adiv[nroAdivinanza].opciones[i];
          $('#contRadio')
-            .append('<p><input class="radi" type="radio" id="radio"'+i+'" name="radios" value="'+i+'">'+valu+' </p>')
-            
+            .append('<p id="pe"><input class="radi" type="radio" id="radio" name="radios" value="'+i+'">'+valu+' </p>')
+                                                            //   id="radio"'+i+'" name
         }
             //<p><input class="radi" type="radio" name="disp" id="radios">Museo</p>
 
