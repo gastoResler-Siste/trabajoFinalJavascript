@@ -76,15 +76,19 @@ $(document).ready(function(){
       $("#divPreguntas").show();
       siguinteAdivinanza()
    };       
+
    $("#botonSiguinte").click(function(){
       // $("#nombre").val("otro texto")
      // var radioValue = $("#radio" +nroAdivinanza+" option:selected").text();
       //let valor= $("#radio" +nroAdivinanza).val();
-      let sele = $('input[name="radios"]:checked').val();
+      let sele =0
+       sele = $('input[name="radios"]:checked').val();
       if (sele==undefined){
          alert("Seleccione una respuesta")
       }else{
-         if (F_adiv[nroAdivinanza].respuesta==sele){
+         let resp=0
+         resp=F_adiv[nroAdivinanza].respuesta
+         if (resp==sele){
             resultado++;
             $("#emNroAdiv").text(resultado);
          }
@@ -102,7 +106,7 @@ $(document).ready(function(){
          
            
       }else{
-         for (i=1;i=4;i++){
+         for (i=1;i<5;i++){
             $("#radio").remove();
             $("#pe").remove();
          }
