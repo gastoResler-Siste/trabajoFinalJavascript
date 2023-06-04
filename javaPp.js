@@ -3,10 +3,13 @@ let nroAdivinanza=0;
 let resultado=0; 
 let F_adiv =[{
    pregunta:"¿Qué cosa es que cuanto más le quitas más grande es?",
-   opciones:["fgfgfg","fgfgfg2","fgfgfg3","fgfgfg4"],
-   respuesta:2,
-}];
-// F_producto.push ({nombre:"Libro jardineris",precio:345,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+   opciones:["la tiza","El agujero","El rencor","Un Dico Rigido"],
+   respuesta:1,
+   }];
+   F_adiv.push ({pregunta:"¿Qué es lo que se hace de noche, que no se puede hacer de día?",Opciones:["Trasnochar","Delinquir","Tomar Sol","Ir al colegio"],respuesta:0}) 
+   F_adiv.push ({pregunta:"El roer es mi trabajo, el queso mi aperitivo y el gato ha sido siempre mi más temido enemigo.",Opciones:["Paloma","Mosca","Perro","Raton"],respuesta:3}) 
+   F_adiv.push ({pregunta:"Me rascan continuamente de forma muy placentera, mi voz es muy bien timbrada y mi cuerpo de madera.",Opciones:["La Flauta","El bombo","La Guitarra","La pandereta"],respuesta:1}) 
+   F_adiv.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",Opciones:["El Osoo Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
 
 
 
@@ -75,6 +78,10 @@ $(document).ready(function(){
    };       
    $("#botonSiguinte").click(function(){
       // $("#nombre").val("otro texto")
+
+
+
+
       siguinteAdivinanza()
    });
 
@@ -88,6 +95,10 @@ $(document).ready(function(){
 //actualizar el nro de adivinanza en el circulo
 
       nroAdivinanza++;
+      $("#idAdivinanza").text(nroAdivinanza+1);//redondel 
+      $("#emCantadivi").text(F_adiv[nroAdivinanza].length);//contador de resultado
+      //id="emNroAdiv" >0</em> de <em id="emCantadivi
+
       const preg=F_adiv[nroAdivinanza].pregunta;         
       $("#idPadivinanza").text(preg);
          
@@ -95,7 +106,7 @@ $(document).ready(function(){
          //contRadio    
          let valu= F_adiv[nroAdivinanza].opciones[i];
          $('#contRadio')
-            .append('<p><input class="radi" type="radio" id="radio" name="radios" value="'+i+'">'+valu+'</p>')
+            .append('<p><input class="radi" type="radio" id="radio"'+i+'" name="radios" value="'+i+'">'+valu+' </p>')
             
         }
             //<p><input class="radi" type="radio" name="disp" id="radios">Museo</p>
