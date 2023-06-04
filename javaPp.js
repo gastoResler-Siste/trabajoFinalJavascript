@@ -1,10 +1,27 @@
 //Pagina de inicio
+let nroAdivinanza=0;
+let resultado=0; 
+let F_adiv =[{
+   pregunta:"¿Qué cosa es que cuanto más le quitas más grande es?",
+   opciones:["fgfgfg","fgfgfg2","fgfgfg3","fgfgfg4"],
+   respuesta:2,
+}];
+// F_producto.push ({nombre:"Libro jardineris",precio:345,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
+
+
+
+
+
+
+
+
+
 
 
 
 $(document).ready(function(){
-   let nroAdivinanza=0
-   let resultado=0  
+   
+    
    
    
    const user=localStorage.getItem("usuario");
@@ -50,33 +67,41 @@ $(document).ready(function(){
      
       localStorage.setItem ("usuario","GASTON");
    });
-  
-          //$("#mostrar").click(function(){
-          //  $("#elemento").text('otro texto');
-           //   $("#elemento").show();
-   function adivinanzas(){
-      nroAdivinanza=0;
-      $("#divPreguntas").show();
-      let F_adiv =[{
-         pregunta:"¿Qué cosa es que cuanto más le quitas más grande es?",
-         opciones:["op1","op2","op3","op4"],
-         respuesta:2
-     }]  
 
-    // F_producto.push ({nombre:"Libro jardineris",precio:345,descuento:10,precioVenta: function(){precioVenta=parseFloat(this.precio)-((parseFloat(this.precio)* parseFloat(this.descuento))/100);return precioVenta;}})        
-   //id="idPadivinanza
-   }       
+   function adivinanzas(){
+      nroAdivinanza=-1
+      $("#divPreguntas").show();
+      siguinteAdivinanza()
+   };       
    $("#botonSiguinte").click(function(){
       // $("#nombre").val("otro texto")
       siguinteAdivinanza()
    });
 
    function siguinteAdivinanza(){
-      nroAdivinanza++;
-               
-      $("#idPadivinanza").text(F_adiv[nroAdivinanza].pregunta);
+         
+      if (nroAdivinanza==-1){
+         alert(nroAdivinanza)
+         
+         
+      }
+//actualizar el nro de adivinanza en el circulo
 
-      alert(F_adiv[nroAdivinanza].opciones[2])
+      nroAdivinanza++;
+      const preg=F_adiv[nroAdivinanza].pregunta;         
+      $("#idPadivinanza").text(preg);
+         
+      for(i=0;i<F_adiv[nroAdivinanza].opciones.length;i++){
+         //contRadio    
+         let valu= F_adiv[nroAdivinanza].opciones[i];
+         $('#contRadio')
+            .append('<p><input class="radi" type="radio" id="radio" name="radios" value="'+i+'">'+valu+'</p>')
+            
+        }
+            //<p><input class="radi" type="radio" name="disp" id="radios">Museo</p>
+
+
+      //alert(F_adiv[nroAdivinanza].opciones[2])
 
 
 
