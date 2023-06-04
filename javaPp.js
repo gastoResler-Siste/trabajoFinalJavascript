@@ -77,25 +77,64 @@ $(document).ready(function(){
       siguinteAdivinanza()
    };       
 
+   $("#botonRespuesta").click(function(){
+      
+         let sele1 =0
+         sele1 = $('input[name="radios"]:checked').val();
+         if (sele1==undefined){
+            alert("Seleccione una respuesta")
+         }else{
+            let resp1=0
+            resp1=F_adiv[nroAdivinanza].respuesta
+            if (resp1==sele1){
+               
+            }else{
+               for (i=0;i<4;i++){
+                  $("#idradio"+i).prop("disabled", true);
+
+               }
+              
+               alert("Respuesta errone")
+               $("#botonSiguinte").prop("disabled",false); 
+            }
+         }        
+      });      
+
    $("#botonSiguinte").click(function(){
-      // $("#nombre").val("otro texto")
-     // var radioValue = $("#radio" +nroAdivinanza+" option:selected").text();
-      //let valor= $("#radio" +nroAdivinanza).val();
-      let sele =0
-       sele = $('input[name="radios"]:checked').val();
-      if (sele==undefined){
-         alert("Seleccione una respuesta")
-      }else{
-         let resp=0
-         resp=F_adiv[nroAdivinanza].respuesta
-         if (resp==sele){
-            resultado++;
-            $("#emNroAdiv").text(resultado);
+
+      if ($("#botonSiguinte").text()!="Finalizar"){
+         let sele =0
+         sele = $('input[name="radios"]:checked').val();
+         if (sele==undefined){
+            alert("Seleccione una respuesta")
+         }else{
+            let resp=0
+            resp=F_adiv[nroAdivinanza].respuesta
+            if (resp==sele){
+               resultado++;
+               $("#emNroAdiv").text(resultado);
+            }
+            let sele =0
+            sele = $('input[name="radios"]:checked').val();
+            if (sele==undefined){
+               alert("Seleccione una respuesta")
+            }else{
+               let resp=0
+               resp=F_adiv[nroAdivinanza].respuesta
+               if (resp==sele){
+                  resultado++;
+                  $("#emNroAdiv").text(resultado);
+               }
+
+               siguinteAdivinanza()
+               if(parseInt($("#idAdivinanza").text())==F_adiv.length){
+                  $("#botonSiguinte").text("Finalizar") ;
+               }
+            }
          }
-
-         siguinteAdivinanza()
+      }else{//$("#botonSiguinte").text()!="Finalizar")
+         alert("finalizar")
       }
-
       
    });
 
@@ -115,7 +154,7 @@ $(document).ready(function(){
 
       nroAdivinanza++;
       $("#idAdivinanza").text(nroAdivinanza+1);//redondel 
-      $("#emCantadivi").text(F_adiv[nroAdivinanza].length);//contador de resultado
+      $("#emCantadivi").text(F_adiv.length);//contador de resultado
       //id="emNroAdiv" >0</em> de <em id="emCantadivi
 
       const preg=F_adiv[nroAdivinanza].pregunta;         
@@ -125,16 +164,12 @@ $(document).ready(function(){
          //contRadio    
          let valu= F_adiv[nroAdivinanza].opciones[i];
          $('#contRadio')
-            .append('<p id="pe"><input class="radi" type="radio" id="radio" name="radios" value="'+i+'">'+valu+' </p>')
+            .append('<p id="pe"><input class="radi" type="radio" id="idradio'+i+'" name="radios" value="'+i+'">'+valu+' </p>')
                                                             //   id="radio"'+i+'" name
         }
             //<p><input class="radi" type="radio" name="disp" id="radios">Museo</p>
-
-
       //alert(F_adiv[nroAdivinanza].opciones[2])
-
-
-
+      $("#botonSiguinte").prop("disabled", true);  // true para desactivarlo o false para volverlo a activar
    }
 
 
