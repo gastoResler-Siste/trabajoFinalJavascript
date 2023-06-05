@@ -1,0 +1,3 @@
+data.provincias.sort(function(mayor, menor) {
+        return mayor.nombre.localeCompare(menor.nombre);
+      }); 

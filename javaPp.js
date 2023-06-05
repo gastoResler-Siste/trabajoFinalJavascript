@@ -308,19 +308,23 @@ $(document).submit(function(event){
    //localStorage.setItem ("usuario","GASTON");
    
 
-   if ($("#nombre").text()==""){
+   if ($("#nombre").val()==""){
       event.preventDefault();
       stt+="Nombre";
       //cNombre.focus();
       //return;
       }
-   if ($("#apellido").text()==""){
+   if ($("#apellido").val()==""){
       event.preventDefault();
       stt+= ", Apellido";
       
       //return;
    }
-   if ($("#email").text()==""){
+   if ($("#edad").val()==""){
+      event.preventDefault();
+      stt+=", edad";
+   }
+   if ($("#email").val()==""){
       event.preventDefault();
       stt+=", mail";
    }
@@ -328,14 +332,19 @@ $(document).submit(function(event){
          event.preventDefault();
          stt+=",Complete el mail";
    }
-   if ($("#contra").text()!=$("#contra1").text()){
-            event.preventDefault();
-            stt+=",Constraseñas distintas";
-   };
-   if ($("#usuario").text()==""){
+   if ($("#usuario").val()==""){
       event.preventDefault();
-      stt+=",nombre de usuario";
+      stt+=", nombre de usuario";
+   }; 
+   if ($("#contra").val()=="" && $("#contra1").val()==""){
+      event.preventDefault();
+      stt+=", Constraseñas vacias";
+   };  
+   if ($("#contra").val()!=$("#contra1").val()){
+            event.preventDefault();
+            stt+=", Constraseñas distintas";
    };
+
 
    if (stt==""){
       localStorage.setItem ("usuario",$("#usuario").text());
