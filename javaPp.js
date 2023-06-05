@@ -4,13 +4,13 @@ let resultado=0;
 let seleccion=-1;
 let F_adiv =[{
    pregunta:"¿Qué cosa es que cuanto más le quitas más grande es?",
-   opciones:["la tiza","El agujero","El rencor","Un Dico Rigido"],
+   opciones:["la tiza","El agujero","El rencor","Un Disco Rigido"],
    respuesta:1,
    }];
    F_adiv.push ({pregunta:"¿Qué es lo que se hace de noche, que no se puede hacer de día?",opciones:["Trasnochar","Delinquir","Tomar Sol","Ir al colegio"],respuesta:0}) 
    F_adiv.push ({pregunta:"El roer es mi trabajo, el queso mi aperitivo y el gato ha sido siempre mi más temido enemigo.",opciones:["Paloma","Mosca","Perro","Raton"],respuesta:3}) 
    F_adiv.push ({pregunta:"Me rascan continuamente de forma muy placentera, mi voz es muy bien timbrada y mi cuerpo de madera.",opciones:["La Flauta","El bombo","La Guitarra","La pandereta"],respuesta:2}) 
-   F_adiv.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",opciones:["El Osoo Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
+   F_adiv.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",opciones:["El Oso Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
 
 
 
@@ -75,6 +75,7 @@ $(document).ready(function(){
    function adivinanzas(){
       nroAdivinanza=-1
       $("#divPreguntas").show();
+      $("#contRadio").show();
       siguinteAdivinanza()
    };       
 
@@ -103,7 +104,7 @@ $(document).ready(function(){
             
                //alert("Respuesta errone")
             }
-             $("#botonSiguinte").prop("disabled",false); 
+            $("#botonSiguinte").show(); 
          }        
       });      
 
@@ -142,12 +143,19 @@ $(document).ready(function(){
             }
          
       }else{//$("#botonSiguinte").text()!="Finalizar")
-         alert("finalizar")
+            let resp=0
+            resp=F_adiv[nroAdivinanza].respuesta
+            if (resp==seleccion){
+               resultado++;
+               $("#emNroAdiv").text(resultado);
+            }
          
          
          $("#idPadivinanza").text("Ha finalizado el Juego, el resultado es "+ $("#ress").text())
-         $("#contRadi").hide();
+         $("#contRadio").hide();
          $("#botonSiguinte").hide();
+         $("#div_acierto").hide();
+         $("#divNroAdiv").hide();
       }
       
    });
@@ -183,8 +191,13 @@ $(document).ready(function(){
         }
             //<p><input class="radi" type="radio" name="disp" id="radios">Museo</p>
       //alert(F_adiv[nroAdivinanza].opciones[2])
-      $("#botonSiguinte").prop("disabled", true);  // true para desactivarlo o false para volverlo a activar
+      $("#botonSiguinte").hide();  // true para desactivarlo o false para volverlo a activar
    }
-
-
+   $("#botonReiniciar").click(function(){
+      location.reload();
+   });
+   $("#botonReiniciarTodo").click(function(){
+      localStorage.removeItem("usuario");
+      location.reload();
+   });
 });

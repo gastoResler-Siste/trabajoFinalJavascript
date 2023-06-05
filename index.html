@@ -9,11 +9,13 @@
             *{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
 
-            input[type="radio"]{
-                /**/
-                background: #B1E8CD;
-               font-weight: bold;
-               font-size: 20px;
+            input[type="password"],input[type="text"],input[type="number"],select {
+                /*  password
+                 font-size: 20px;
+                */
+                background: #f6eded;
+
+               border: rgb(223, 45, 45) 1px solid;
             }  
             
             a{
@@ -28,11 +30,11 @@
            }
 
            .linea{
-            border: red 2px solid;
-            display:block;
+            border: red 0px solid;
+            display:none;
            }
            .lineaAz{
-            border: rgb(15, 23, 186) 1px solid;
+            border: rgb(15, 23, 186) 0px solid;
             display: block;
            }
            label{
@@ -142,13 +144,13 @@
         
         <div id="divRegistro" class="linea"  style="width: 100%;">
 <!---->
-            <div style="display: flex; margin-top:15px; margin: auto; width: 360px; height: 50px; background-color:white ; border: rgb(223, 45, 45) 2px solid; border-radius: 33px;padding: 0px;">
+            <div style="display: flex; margin-top:15px; margin: auto; width:55%; height: 50px; background-color:white ; border: rgb(223, 45, 45) 2px solid; border-radius: 33px;padding: 0px;">
                 
                     <p style="margin-top: 15px;  text-align: center; width: 100%; height: 70%; margin: auto;font-weight: bold;">Es necesario Registrarse para poder Jugar</p>
                 
             </div>
             <br>
-            <div style="height: 320PX; border: 4px green solid ;width: 55%;overflow: auto; margin: auto;">
+            <div style="height: 330PX; border: 0px green solid ;width: 55%;overflow: auto; margin: auto;">
                 <form action="index.html" method="get">
                     <div style="height:25px; width: 49%;float: left;">
                         <label>Nombre:</label> </div>
@@ -206,12 +208,12 @@
                     <div style="height:25px; width: 49%;float: left;">
                         <label>Contraseña:</label> </div>
                     <div style="height:25px;width: 49%;float: right;">
-                        <input type="text" name="nombre" value=""></div>
+                        <input type="password" name="nombre" value=""></div>
 
                     <div style="height:25px; width: 49%;float: left;">
                         <label>Confirmar Contraseña:</e-Mail>:</label> </div>
                     <div style="height:25px;width: 49%;float: right;">
-                        <input type="text" name="nombre" value=""></div>
+                        <input type="password" name="nombre" value=""></div>
                     <br>
                     <div style="height:25px; width: 49%;float: left;">
                         <button style="float:right ;margin-top: 9%;" type="reset" class="button_">Borrar</button>
@@ -232,14 +234,14 @@
             <div style="display:flexbox; margin: auto;width: 450px; height: 50px; background-color:white;">
                 <p id="idTipoJuego" style="float: left; margin:auto; vertical-align:auto; font-size: 26px; width: 90%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; vertical-align: middle;text-align: center;font-weight: bold;font-style: italic;">Juego de Adivinanzas</p>
                 
-                <div style=" float: right; vertical-align: top;  margin: auto; width: 40px; height:40px; background-color:white ; border: #848492 2px solid; border-radius: 33px;padding: 0px;">
+                <div id="divNroAdiv" style=" float: right; vertical-align: top;  margin: auto; width: 40px; height:40px; background-color:white ; border: #848492 2px solid; border-radius: 33px;padding: 0px;">
                 
                     <p id="idAdivinanza" style=" text-align:center;margin-top: 1px;vertical-align: top; height: 100%;font-weight: bold;width:100% ;font-size:28px ;">1</p>
                 
                 </div>
             </div>
 
-             <div class="lineaAz" style="margin-top: 20px;display:flexbox; margin: auto;width: 100%; height: 100%; background-color: transparent ;">
+             <div class="" style="margin-top: 20px;display:flexbox; margin: auto;width: 100%; height: 100%; background-color: transparent ;">
                 <p id="idPadivinanza" style="padding-left:5%;padding-right:5% ; margin:auto; vertical-align:auto; font-size: 24px;color: #535376; width: 90%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; vertical-align: middle;text-align: center;font-weight: bold;font-style: italic;">adiviiiiiiiiiiiii</p>
             </div> 
             <div id="contRadio" class="lineaAz" style="display:flexbox;padding-left: 15%; margin: auto;width: 83%; height:100%; background-color: transparent ;">
@@ -253,7 +255,7 @@
             </div>
 
             <div style="display:flexbox; margin-top: 5px; margin-left: 7%;margin-right: 7%; width: 85%; height: 55px; background-color: transparent ;">
-                <div style=" float:left; vertical-align: top;  margin: auto; width: 170px; height:30px; background-color:white ; border: #848492 1px solid; border-radius: 33px;padding: 0px;">
+                <div id="div_acierto" style=" float:left; vertical-align: top;  margin: auto; width: 170px; height:30px; background-color:white ; border: #848492 1px solid; border-radius: 33px;padding: 0px;">
                    <p id="ress" style=" text-align:center;margin-top: 1px;vertical-align: top; height: 100%;font-weight: bold;width:100% ;font-size:24px ;color:  #848492;">Acierto <em id="emNroAdiv" >0</em> de <em id="emCantadivi">5</em> </p>
                 </div> 
                 
