@@ -1,6 +1,7 @@
 //Pagina de inicio
 let nroAdivinanza=0;
 let resultado=0; 
+let seleccion=-1;
 let F_adiv =[{
    pregunta:"¿Qué cosa es que cuanto más le quitas más grande es?",
    opciones:["la tiza","El agujero","El rencor","Un Dico Rigido"],
@@ -8,7 +9,7 @@ let F_adiv =[{
    }];
    F_adiv.push ({pregunta:"¿Qué es lo que se hace de noche, que no se puede hacer de día?",opciones:["Trasnochar","Delinquir","Tomar Sol","Ir al colegio"],respuesta:0}) 
    F_adiv.push ({pregunta:"El roer es mi trabajo, el queso mi aperitivo y el gato ha sido siempre mi más temido enemigo.",opciones:["Paloma","Mosca","Perro","Raton"],respuesta:3}) 
-   F_adiv.push ({pregunta:"Me rascan continuamente de forma muy placentera, mi voz es muy bien timbrada y mi cuerpo de madera.",opciones:["La Flauta","El bombo","La Guitarra","La pandereta"],respuesta:1}) 
+   F_adiv.push ({pregunta:"Me rascan continuamente de forma muy placentera, mi voz es muy bien timbrada y mi cuerpo de madera.",opciones:["La Flauta","El bombo","La Guitarra","La pandereta"],respuesta:2}) 
    F_adiv.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",opciones:["El Osoo Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
 
 
@@ -84,36 +85,44 @@ $(document).ready(function(){
          if (sele1==undefined){
             alert("Seleccione una respuesta")
          }else{
+            seleccion=sele1;
             let resp1=0
             resp1=F_adiv[nroAdivinanza].respuesta
             if (resp1==sele1){
-               
+               $("#divRespuesta").show();
+               $("#pRespuesta").text("Respuesta Correcta");
+                 
             }else{
+               let resp2=F_adiv[nroAdivinanza].opciones[resp1]
+               $("#divRespuesta").show();
+               $("#pRespuesta").text("Inorrecta. es: "+resp2);
+
                for (i=0;i<4;i++){
                   $("#idradio"+i).prop("disabled", true);
-
                }
-              
-               alert("Respuesta errone")
-               $("#botonSiguinte").prop("disabled",false); 
+            
+               //alert("Respuesta errone")
             }
+             $("#botonSiguinte").prop("disabled",false); 
          }        
       });      
 
    $("#botonSiguinte").click(function(){
 
       if ($("#botonSiguinte").text()!="Finalizar"){
-         let sele =0
-         sele = $('input[name="radios"]:checked').val();
-         if (sele==undefined){
+         let sele =-1
+         sele = seleccion//$('input[name="radios"]:checked').val();
+         if (seleccion==undefined){
             alert("Seleccione una respuesta")
          }else{
             let resp=0
             resp=F_adiv[nroAdivinanza].respuesta
-            if (resp==sele){
+            if (resp==seleccion){
                resultado++;
                $("#emNroAdiv").text(resultado);
             }
+            
+            /*
             let sele =0
             sele = $('input[name="radios"]:checked').val();
             if (sele==undefined){
@@ -125,15 +134,20 @@ $(document).ready(function(){
                   resultado++;
                   $("#emNroAdiv").text(resultado);
                }
-
+               */
                siguinteAdivinanza()
                if(parseInt($("#idAdivinanza").text())==F_adiv.length){
                   $("#botonSiguinte").text("Finalizar") ;
                }
             }
-         }
+         
       }else{//$("#botonSiguinte").text()!="Finalizar")
          alert("finalizar")
+         
+         
+         $("#idPadivinanza").text("Ha finalizado el Juego, el resultado es "+ $("#ress").text())
+         $("#contRadi").hide();
+         $("#botonSiguinte").hide();
       }
       
    });
@@ -151,7 +165,7 @@ $(document).ready(function(){
          }
       }
 //actualizar el nro de adivinanza en el circulo
-
+      $("#divRespuesta").hide();
       nroAdivinanza++;
       $("#idAdivinanza").text(nroAdivinanza+1);//redondel 
       $("#emCantadivi").text(F_adiv.length);//contador de resultado
