@@ -13,10 +13,61 @@ let F_adiv =[{
    F_adiv.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",opciones:["El Oso Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
 
 
+   let F_preg =[{
+      pregunta:"¿Qué cosa es que cuanto más le quitas más grande es?",
+      opciones:["la tiza","El agujero","El rencor","Un Disco Rigido"],
+      respuesta:1,
+      }];
+      F_preg.push ({pregunta:"¿Qué es lo que se hace de noche, que no se puede hacer de día?",opciones:["Trasnochar","Delinquir","Tomar Sol","Ir al colegio"],respuesta:0}) 
+      F_preg.push ({pregunta:"El roer es mi trabajo, el queso mi aperitivo y el gato ha sido siempre mi más temido enemigo.",opciones:["Paloma","Mosca","Perro","Raton"],respuesta:3}) 
+      F_preg.push ({pregunta:"Me rascan continuamente de forma muy placentera, mi voz es muy bien timbrada y mi cuerpo de madera.",opciones:["La Flauta","El bombo","La Guitarra","La pandereta"],respuesta:2}) 
+      F_preg.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",opciones:["El Oso Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
+   
+   
+      function carga_localidades(id_provincia){
+         $.ajax({ 
+              
+            url: 'https://apis.datos.gob.ar/georef/api/municipios?provincia=' + id_provincia + '&campos=id,nombre&max=1000',
+            method: "GET",
+            dataType: "json",
+
+            success: function(data) {
+            var select1 = $("#ciudad");
+            $("#ciudad").empty()
+               
+
+            for (var i = 0; i < data.municipios.length; i++) {
+                var option = $("<option>").text(data.municipios[i].nombre).val(data.municipios[i].id);
+                select1.append(option);
+            }
+            },
+            error: function() {
+            alert("Error al obtener los datos de la API");
+            }
+        });
+      };
 
 
 
-
+      function carga_rovincias(paiss){
+         $.ajax({
+            url: "https://apis.datos.gob.ar/georef/api/provincias",
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+                  
+              var select = $("#provincia");
+              for (var i = 0; i < data.provincias.length; i++) {
+                var option = $("<option>").text(data.provincias[i].nombre).val(data.provincias[i].id);
+                select.append(option);
+              }
+            },
+            error: function() {
+              alert("Error al obtener los datos de la API");
+            }
+            });
+      };
+      
 
 
 
@@ -25,13 +76,50 @@ let F_adiv =[{
 
 $(document).ready(function(){
    
-    
+
+   $('#provincia').change(function() {
+
+      var select1 = $("#provincia option:selected").text();
+      let valor= $("#provincia").val();
+
+        //alert('seleccion ' + select1 + ' y valor:' + valor );
+         carga_localidades(valor)
+        
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function carga_pais(){
+      //var select = $("#provincia");
+             // for (var i = 0; i < data.provincias.length; i++) {
+                var option = $("<option>").text("Argentina").val(54);
+                $("#pais").append(option);
+      };
    
    
    const user=localStorage.getItem("usuario");
    if (user==null){
       localStorage.removeItem("usuario")
       $("#divRegistro").show();
+      carga_pais();
+      carga_rovincias();
       stop
    
    }
@@ -39,7 +127,6 @@ $(document).ready(function(){
       
       $("#pUsuario").text(user);
       $("#divComenzar").show();
-      
    }
    //id="divRegistro"
    $("#divReiniciar").show();

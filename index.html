@@ -34,8 +34,14 @@
             display:none;
            }
            .lineaAz{
-            border: rgb(15, 23, 186) 0px solid;
-            display: block;
+            border: rgb(15, 23, 186) 3px dotted;
+            display: none;
+            border-radius: 15px;
+           }
+           .lineaRj{
+            border:rgb(223, 45, 45) 3px dotted;
+            display: none;
+            border-radius: 15px;
            }
            label{
                 float: right;  
@@ -44,13 +50,13 @@
             }
               input.text{
                 height: 20px;
-                 width: 95%;
+                 width: 97%;
                  margin-top: 2px;
                  border-radius: 2px;
               
         }
         .spa{
-            color: blue;
+            color::rgb(223, 45, 45);
             font-style: italic;
             font-size: 12px;
         }
@@ -107,8 +113,8 @@
         </div>   
          
          <div>
-           
-            <hr style="width: 88%;">
+           <br>
+          <!--  <hr style="width: 88%;">-->
         </div>
         
          <center>   
@@ -142,9 +148,9 @@
 
         </center> 
         
-        <div id="divRegistro" class="linea"  style="width: 100%;">
-<!---->
-            <div style="display: flex; margin-top:15px; margin: auto; width:55%; height: 50px; background-color:white ; border: rgb(223, 45, 45) 2px solid; border-radius: 33px;padding: 0px;">
+        <div id="divRegistro" class="lineaRj"  style="width: 100%;">
+<!----> <br>
+            <div style="display: flex; margin: auto; width:55%; height: 50px; background-color:white ; border: rgb(223, 45, 45) 2px solid; border-radius: 33px;padding: 0px;">
                 
                     <p style="margin-top: 15px;  text-align: center; width: 100%; height: 70%; margin: auto;font-weight: bold;">Es necesario Registrarse para poder Jugar</p>
                 
@@ -167,39 +173,35 @@
                     <div style="height:25px;width: 49%;float: right;">
                         <input type="number" id="edad" name="Edad" value=""></div>
 
-                    <div style="height:40px; width: 49%;float: left;">
+                    <div style="height:25px; width: 49%;float: left;">
                         <label>Email:</label> </div>
-                    <div style="height:40px;width: 49%;float: right;">
+                    <div style="height:25px;width: 49%;float: right;">
                         <input type="text" id="email" name="Mail" value="" >
-                        <br>
-                        <span id="spaerrores" class="spa"></span>
+                        
                     </div>
-
-                    <div style="height:25px; width: 49%;float: left;">
-                        <label>Provincia:</label> </div>
-                    <div style="height:25px;width: 49%;float: right;">
-                        <select id="provincia" name="Provincia" >
-                            <option value="Provincia">Provincia</option>
-                        </select>
-                    </div>
-                    
-
-                    <div style="height:25px; width: 49%;float: left;">
-                        <label>Ciudad:</label> </div>
-                    <div style="height:25px;width: 49%;float: right;">
-                        <select id="ciudad" name="Ciudad" >
-                            <option value="Ciudad">Ciudad</option>
-                        </select>
-                    </div>
-
                     <div style="height:25px; width: 49%;float: left;">
                         <label>Pais:</label> </div>
                     <div style="height:25px;width: 49%;float: right;">
                         <select id="pais" name="Pais" >
-                            <option value="Pais">Pais</option>
+                           <!-- <option value="Pais">Pais</option>-->
                         </select>
                     </div>
-                                    
+                    <div style="height:25px; width: 49%;float: left;">
+                        <label>Provincia:</label> </div>
+                    <div style="height:25px;width: 49%;float: right;">
+                        <select id="provincia" name="Provincia" >
+                           <!-- <option value="Provincia">Provincia</option>-->
+                        </select>
+                    </div>
+ 
+                    <div style="height:25px; width: 49%;float: left;">
+                        <label>Ciudad:</label> </div>
+                    <div style="height:25px;width: 49%;float: right;">
+                        <select id="ciudad" name="Ciudad" >
+                            <!--<option value="Ciudad">Ciudad</option>-->
+                        </select>
+                    </div>
+                                  
                     <div style="height:25px; width: 49%;float: left;">
                         <label>Usuario:</label> </div>
                     <div style="height:25px;width: 49%;float: right;">
@@ -210,11 +212,18 @@
                     <div style="height:25px;width: 49%;float: right;">
                         <input type="password" name="nombre" value=""></div>
 
-                    <div style="height:25px; width: 49%;float: left;">
+                    <div style="height:40px; width: 49%;float: left;">
                         <label>Confirmar Contraseña:</e-Mail>:</label> </div>
-                    <div style="height:25px;width: 49%;float: right;">
-                        <input type="password" name="nombre" value=""></div>
+                    <div style="height:40px;width: 49%;float: right;">
+                        <input type="password" name="nombre" value=""> 
+                        <br>
+                         <span id="spaerrores" class="spa">sdsdsdsd</span>
+                    </div>
+                       
+                       
+
                     <br>
+                        
                     <div style="height:25px; width: 49%;float: left;">
                         <button style="float:right ;margin-top: 9%;" type="reset" class="button_">Borrar</button>
                     </div>
@@ -230,7 +239,7 @@
             
         </div>
 
-        <div id="divPreguntas" class="linea"  style="width: 100%">
+        <div id="divPreguntas" class="lineaAz"  style="width: 100%">
             <div style="display:flexbox; margin: auto;width: 450px; height: 50px; background-color:white;">
                 <p id="idTipoJuego" style="float: left; margin:auto; vertical-align:auto; font-size: 26px; width: 90%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; vertical-align: middle;text-align: center;font-weight: bold;font-style: italic;">Juego de Adivinanzas</p>
                 
@@ -244,7 +253,7 @@
              <div class="" style="margin-top: 20px;display:flexbox; margin: auto;width: 100%; height: 100%; background-color: transparent ;">
                 <p id="idPadivinanza" style="padding-left:5%;padding-right:5% ; margin:auto; vertical-align:auto; font-size: 24px;color: #535376; width: 90%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; vertical-align: middle;text-align: center;font-weight: bold;font-style: italic;">adiviiiiiiiiiiiii</p>
             </div> 
-            <div id="contRadio" class="lineaAz" style="display:flexbox;padding-left: 15%; margin: auto;width: 83%; height:100%; background-color: transparent ;">
+            <div id="contRadio" class="linea" style="display:flexbox;padding-left: 15%; margin: auto;width: 83%; height:100%; background-color: transparent ;">
                 
                 <button id="botonRespuesta" style="float: right; margin-top: 25px;margin-right: 45px; height:30px;font-size: 18px; border-color: #05914e 2px solid;color: antiquewhite; background-color: #44d052;border-radius: 33px;  padding-left:6px;  padding-right:6px ">ver respuesta</button>
                 <div id="divRespuesta" style="display: none; float:right;   margin: auto; width: 270px; margin-top: 25px; height:25px;margin-right: 35px; background-color:white ; border: #848492 1px solid; border-radius: 33px;padding: 0px;">
