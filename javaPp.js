@@ -24,6 +24,10 @@ let F_adiv =[{
       F_preg.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",opciones:["El Oso Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
    
    
+     
+
+
+
       function carga_localidades(id_provincia){
          $.ajax({ 
               
@@ -153,11 +157,11 @@ $(document).ready(function(){
       $("#divPreguntas").show();
 
    });
-    $("#grabar").click(function(){
+   /* $("#grabar").click(function(){
       // $("#nombre").val("otro texto")
      
-      localStorage.setItem ("usuario","GASTON");
-   });
+      //localStorage.setItem ("usuario","GASTON");
+   });*/
 
    function adivinanzas(){
       nroAdivinanza=-1
@@ -287,4 +291,57 @@ $(document).ready(function(){
       localStorage.removeItem("usuario");
       location.reload();
    });
+
+
+});//ready
+
+
+
+$(document).submit(function(event){
+   let stt=""
+   /*Nombre, Apellido,
+   correo electrónico, nombre de usuario y contraseña.
+   - Validar que el correo electrónico sea un formato válido, es decir el usuario no puede
+   ingresar “kdbfkjsbd”
+   */
+   //event.preventDefault();
+   //localStorage.setItem ("usuario","GASTON");
+   
+
+   if ($("#nombre").text()==""){
+      event.preventDefault();
+      stt+="Nombre";
+      //cNombre.focus();
+      //return;
+      }
+   if ($("#apellido").text()==""){
+      event.preventDefault();
+      stt+= ", Apellido";
+      
+      //return;
+   }
+   if ($("#email").text()==""){
+      event.preventDefault();
+      stt+=", mail";
+   }
+   if ($("#email").val()){
+         event.preventDefault();
+         stt+=",Complete el mail";
+   }
+   if ($("#contra").text()!=$("#contra1").text()){
+            event.preventDefault();
+            stt+=",Constraseñas distintas";
+   };
+   if ($("#usuario").text()==""){
+      event.preventDefault();
+      stt+=",nombre de usuario";
+   };
+
+   if (stt==""){
+      localStorage.setItem ("usuario",$("#usuario").text());
+   }else{
+      stt="Complete " + stt;
+      $("#spaerrores").text(stt);
+   };
+
 });
