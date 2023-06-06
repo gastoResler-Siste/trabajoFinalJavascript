@@ -326,12 +326,14 @@ $(document).submit(function(event){
    }
    if ($("#email").val()==""){
       event.preventDefault();
-      stt+=", mail";
+      stt+=", mail esta vacio";
    }
-   if ($("#email").val()){
-         event.preventDefault();
-         stt+=",Complete el mail";
-   }
+   if ($("#email").val()!=""){
+      if (!/^\S+@\S+\.\S+$/.test($("#email"))){
+            event.preventDefault();
+            stt+=", el mail no cumple el formato";
+      }
+   endif
    if ($("#usuario").val()==""){
       event.preventDefault();
       stt+=", nombre de usuario";
