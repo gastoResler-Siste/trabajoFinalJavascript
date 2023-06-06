@@ -129,7 +129,7 @@ $(document).ready(function(){
    }
    else {
       
-      $("#pUsuario").text(user);
+      $("#pUsuario").text(user.toUpperCase());
       $("#divComenzar").show();
    }
    //id="divRegistro"
@@ -310,48 +310,48 @@ $(document).submit(function(event){
 
    if ($("#nombre").val()==""){
       event.preventDefault();
-      stt+="Nombre";
+      stt+="Nombre, ";
       //cNombre.focus();
       //return;
       }
    if ($("#apellido").val()==""){
       event.preventDefault();
-      stt+= ", Apellido";
+      stt+= "Apellido, ";
       
       //return;
    }
    if ($("#edad").val()==""){
       event.preventDefault();
-      stt+=", edad";
+      stt+="edad, ";
    }
    if ($("#email").val()==""){
       event.preventDefault();
-      stt+=", mail esta vacio";
+      stt+="mail esta vacio, ";
    }
    if ($("#email").val()!=""){
-      if (!/^\S+@\S+\.\S+$/.test($("#email"))){
+      if (/^\S+@\S+\.\S+$/.test($("#email"))){
             event.preventDefault();
-            stt+=", el mail no cumple el formato";
+            stt+="el mail no cumple el formato, ";
       }
-   endif
+   }
    if ($("#usuario").val()==""){
       event.preventDefault();
-      stt+=", nombre de usuario";
+      stt+="nombre de usuario, ";
    }; 
    if ($("#contra").val()=="" && $("#contra1").val()==""){
       event.preventDefault();
-      stt+=", Constraseñas vacias";
+      stt+="Constraseñas vacias,";
    };  
    if ($("#contra").val()!=$("#contra1").val()){
             event.preventDefault();
-            stt+=", Constraseñas distintas";
+            stt+="Constraseñas distintas, ";
    };
 
 
    if (stt==""){
-      localStorage.setItem ("usuario",$("#usuario").text());
+      localStorage.setItem ("usuario",$("#usuario").val());
    }else{
-      stt="Complete " + stt;
+      stt="Complete: " + stt;
       $("#spaerrores").text(stt);
    };
 
