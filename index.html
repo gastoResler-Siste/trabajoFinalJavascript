@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="jquery-3.7.0.min.js"></script>
         <meta charset="utf-8">
         <enlace href="https: //fonts.googleapis.com/css2? family= Roboto:wght@300 & display=swap" rel="stylesheet"></enlace>
         <title>  Trabajo Final Javascrip </title>
         <link rel="shortcut icon" href="icon.png">
         <style>
             *{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
-
+            };
+            
+            .rojo{
+                color:red;
+            };
+            .verde{
+                color: #10dd05;
+            };
             input[type="password"],input[type="text"],input[type="number"],select {
                 /*  password
                  font-size: 20px;
@@ -239,7 +246,7 @@
             
         </div>
 
-        <div id="divPreguntas" class="lineaAz"  style="width: 100%">
+        <div id="divPreguntas" class="lineaRj"  style="width: 100%">
             <div style="display:flexbox; margin: auto;width: 450px; height: 50px; background-color:white;">
                 <p id="idTipoJuego" style="float: left; margin:auto; vertical-align:auto; font-size: 26px; width: 90%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; vertical-align: middle;text-align: center;font-weight: bold;font-style: italic;">Juego de Adivinanzas</p>
                 
@@ -255,9 +262,9 @@
             </div> 
             <div id="contRadio" class="linea" style="display:flexbox;padding-left: 15%; margin: auto;width: 83%; height:100%; background-color: transparent ;">
                 
-                <button id="botonRespuesta" style="float: right; margin-top: 25px;margin-right: 45px; height:30px;font-size: 18px; border-color: #05914e 2px solid;color: antiquewhite; background-color: #44d052;border-radius: 33px;  padding-left:6px;  padding-right:6px ">ver respuesta</button>
-                <div id="divRespuesta" style="display: none; float:right;   margin: auto; width: 270px; margin-top: 25px; height:25px;margin-right: 35px; background-color:white ; border: #848492 1px solid; border-radius: 33px;padding: 0px;">
-                    <p id="pRespuesta" style=" text-align:center;margin-top: 1px;vertical-align: top; height: 100%;font-weight: bold;width:100% ;font-size:18px ;color:  #848492;">Respuesta Correcta </p>
+                <button id="botonRespuesta" style="float: right; margin-top: 25px;margin-right: 45px; height:30px;  padding-left:6px;  padding-right:6px;" class="button_">ver respuesta</button>
+                <div id="divRespuesta" style="display: none; float:right;   margin: auto; width: 270px; margin-top: 25px; height:25px;margin-right: 35px; border-radius: 33px;padding: 0px; border: rgb(223, 45, 45) 1px solid;" >
+                    <p id="pRespuesta" style=" text-align:center; margin-top: 1px; vertical-align: top;height: 100%; font-weight: bold; width:100% ; font-size:18px ;">Respuesta </p>
                  </div> 
                
                
@@ -277,8 +284,8 @@
             
             
             <div style="display:flex; margin: auto;width: 550px; height: 130px; background-color:white ;">
-                <button id="botonReiniciar" style="margin: auto; background-color: #dadfdb;margin-top: 13%; font-size: 20px;float:left;height:45px;border-color: #eb8f06;border-radius: 33px; width:220px ">Reiniciar Juego</button>
-                <button id="botonReiniciarTodo" style="margin: auto; background-color: #dadfdb;margin-top: 13%; font-size: 20px;float:right;height:45px;border-color: #5aeb06;border-radius: 33px; width:270px ">Reiniciar Juego y usuario</button>                
+                <button id="botonReiniciar" style="margin: auto;float:left;height:45px; width:220px " class="button_">Reiniciar Juego</button>
+                <button id="botonReiniciarTodo" style="margin: auto; float:right;height:45px; width:270px " class="button_">Reiniciar Juego y usuario</button>                
             </div>
         </div> 
         <div id="divFooter" class=""  style="width: 100%;margin-top:15px;">
@@ -294,7 +301,7 @@
 
         
     </footer>
-    <script src="jquery-3.7.0.min.js"></script>
+    
     <script src="javaPp.js"></script>
      <script>
 

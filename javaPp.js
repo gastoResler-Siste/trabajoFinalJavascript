@@ -129,7 +129,7 @@ $(document).ready(function(){
    }
    else {
       
-      $("#pUsuario").text(user.toUpperCase());
+      $("#pUsuario").text(user.toUpperCase ());
       $("#divComenzar").show();
    }
    //id="divRegistro"
@@ -183,12 +183,15 @@ $(document).ready(function(){
             if (resp1==sele1){
                $("#divRespuesta").show();
                $("#pRespuesta").text("Respuesta Correcta");
-                 
+               $("#pRespuesta").removeClass("rojo");
+               $("#pRespuesta").addClass("verde");
             }else{
                let resp2=F_adiv[nroAdivinanza].opciones[resp1]
                $("#divRespuesta").show();
                $("#pRespuesta").text("Inorrecta. es: "+resp2);
-
+               $("#pRespuesta").removeClass("verde");
+               $("#pRespuesta").addClass("rojo");
+   
                for (i=0;i<4;i++){
                   $("#idradio"+i).prop("disabled", true);
                }
