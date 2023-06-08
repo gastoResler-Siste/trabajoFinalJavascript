@@ -14,14 +14,14 @@ let F_adiv =[{
 
 
    let F_preg =[{
-      pregunta:"¿Qué cosa es que cuanto más le quitas más grande es?",
-      opciones:["la tiza","El agujero","El rencor","Un Disco Rigido"],
-      respuesta:1,
+      pregunta:" El periodo en el que aparecieron la agricultura y los asentamientos sedentarios se llama:",
+      opciones:["Neolitico","Edad Meida","Paleolitico","Hera de Hielo"],
+      respuesta:0,
       }];
-      F_preg.push ({pregunta:"¿Qué es lo que se hace de noche, que no se puede hacer de día?",opciones:["Trasnochar","Delinquir","Tomar Sol","Ir al colegio"],respuesta:0}) 
-      F_preg.push ({pregunta:"El roer es mi trabajo, el queso mi aperitivo y el gato ha sido siempre mi más temido enemigo.",opciones:["Paloma","Mosca","Perro","Raton"],respuesta:3}) 
-      F_preg.push ({pregunta:"Me rascan continuamente de forma muy placentera, mi voz es muy bien timbrada y mi cuerpo de madera.",opciones:["La Flauta","El bombo","La Guitarra","La pandereta"],respuesta:2}) 
-      F_preg.push ({pregunta:" Viste de chaleco blanco, y también de negro frac, es un ave que no vuela, pero nada. ¿Qué será?",opciones:["El Oso Polar","El Pinguino","El cocodrilo","la nutria"],respuesta:1})        
+      F_preg.push ({pregunta:"¿Cuándo se inventó la escritura?",opciones:["Hace 20 mil años","En el IV a.C.","En el año 0.","En el año 220 DC."],respuesta:1}) 
+      F_preg.push ({pregunta:"¿Cómo se llamaban los gobernantes del antiguo Egipto?",opciones:["Faraones.","Basileos.","Alcaldes.","Alfiles"],respuesta:0}) 
+      F_preg.push ({pregunta:"Según las leyendas de la antiguedad, ¿quiénes fundaron a Roma?",opciones:["Aquiles y Odiseo.","Alejandro Magno y Ptolomeo.","Rómulo y Remo.","Telma y Luise"],respuesta:2}) 
+      F_preg.push ({pregunta:"¿Dónde y cuándo se inventó la pólvora?",opciones:["En EEUU siglo XIX.","En China siglo IX.","En Argentina siglo XV.","En Francia siglo XVII."],respuesta:1})        
    
    
      
@@ -146,6 +146,7 @@ $(document).ready(function(){
     $("#botonAdivinanaza").click(function(){
       // $("#nombre").val("otro texto")
       $("#divComenzar2").hide();
+      $("#idTipoJuego").text("Juego de Adivinanza")
       adivinanzas();
       
 
@@ -154,7 +155,8 @@ $(document).ready(function(){
    $("#botonChoice").click(function(){
       // $("#nombre").val("otro texto")
       $("#divComenzar2").hide();
-      $("#divPreguntas").show();
+      $("#idTipoJuego").text("Multiple Choice")
+      adivinanzas();
 
    });
    /* $("#grabar").click(function(){
@@ -171,7 +173,8 @@ $(document).ready(function(){
    };       
 
    $("#botonRespuesta").click(function(){
-      
+      if ($("#idTipoJuego").text()=="Juego de Adivinanza"){
+         //$("#idTipoJuego").TEXT("Juego de Adivinanza")
          let sele1 =0
          sele1 = $('input[name="radios"]:checked').val();
          if (sele1==undefined){
@@ -199,94 +202,215 @@ $(document).ready(function(){
                //alert("Respuesta errone")
             }
             $("#botonSiguinte").show(); 
-         }        
-      });      
-
-   $("#botonSiguinte").click(function(){
-
-      if ($("#botonSiguinte").text()!="Finalizar"){
-         let sele =-1
-         sele = seleccion//$('input[name="radios"]:checked').val();
-         if (seleccion==undefined){
+         }      
+      }else{
+         //multiple choice   F_preg
+         //$("#idTipoJuego").TEXT("Juego de Adivinanza")
+         let sele1 =0
+         sele1 = $('input[name="radios"]:checked').val();
+         if (sele1==undefined){
             alert("Seleccione una respuesta")
          }else{
-            let resp=0
-            resp=F_adiv[nroAdivinanza].respuesta
-            if (resp==seleccion){
-               resultado++;
-               $("#emNroAdiv").text(resultado);
-            }
+            seleccion=sele1;
+            let resp1=0
+            resp1=F_preg[nroAdivinanza].respuesta
+            if (resp1==sele1){
+               $("#divRespuesta").show();
+               $("#pRespuesta").text("Respuesta Correcta");
+               $("#pRespuesta").removeClass("rojo");
+               $("#pRespuesta").addClass("verde");
+            }else{
+               let resp2=F_preg[nroAdivinanza].opciones[resp1]
+               $("#divRespuesta").show();
+               $("#pRespuesta").text("Inorrecta. es: "+resp2);
+               $("#pRespuesta").removeClass("verde");
+               $("#pRespuesta").addClass("rojo");
+   
+               for (i=0;i<4;i++){
+                  $("#idradio"+i).prop("disabled", true);
+               }
             
-            /*
-            let sele =0
-            sele = $('input[name="radios"]:checked').val();
-            if (sele==undefined){
+               //alert("Respuesta errone")
+            }
+            $("#botonSiguinte").show(); 
+         } 
+      };  
+   });      
+
+   $("#botonSiguinte").click(function(){
+      if ($("#idTipoJuego").text()=="Juego de Adivinanza"){
+         
+         if ($("#botonSiguinte").text()!="Finalizar"){
+            let sele =-1
+            sele = seleccion//$('input[name="radios"]:checked').val();
+            if (seleccion==undefined){
                alert("Seleccione una respuesta")
             }else{
                let resp=0
                resp=F_adiv[nroAdivinanza].respuesta
-               if (resp==sele){
+               if (resp==seleccion){
                   resultado++;
                   $("#emNroAdiv").text(resultado);
                }
-               */
-               siguinteAdivinanza()
-               if(parseInt($("#idAdivinanza").text())==F_adiv.length){
-                  $("#botonSiguinte").text("Finalizar") ;
+               
+               /*
+               let sele =0
+               sele = $('input[name="radios"]:checked').val();
+               if (sele==undefined){
+                  alert("Seleccione una respuesta")
+               }else{
+                  let resp=0
+                  resp=F_adiv[nroAdivinanza].respuesta
+                  if (resp==sele){
+                     resultado++;
+                     $("#emNroAdiv").text(resultado);
+                  }
+                  */
+                  siguinteAdivinanza()
+                  if(parseInt($("#idAdivinanza").text())==F_adiv.length){
+                     $("#botonSiguinte").text("Finalizar") ;
+                  }
                }
-            }
-         
-      }else{//$("#botonSiguinte").text()!="Finalizar")
-            let resp=0
-            resp=F_adiv[nroAdivinanza].respuesta
-            if (resp==seleccion){
-               resultado++;
-               $("#emNroAdiv").text(resultado);
-            }
-         
-         
-         $("#idPadivinanza").text("Ha finalizado el Juego, el resultado es "+ $("#ress").text())
-         $("#contRadio").hide();
-         $("#botonSiguinte").hide();
-         $("#div_acierto").hide();
-         $("#divNroAdiv").hide();
+            
+         }else{//$("#botonSiguinte").text()!="Finalizar")
+               let resp=0
+               resp=F_adiv[nroAdivinanza].respuesta
+               if (resp==seleccion){
+                  resultado++;
+                  $("#emNroAdiv").text(resultado);
+               }
+            
+            
+            $("#idPadivinanza").text("Ha finalizado el Juego, el resultado es "+ $("#ress").text())
+            $("#contRadio").hide();
+            $("#botonSiguinte").hide();
+            $("#div_acierto").hide();
+            $("#divNroAdiv").hide();
+         }
+      }else{
+         //multiple choice   F_preg
+         if ($("#botonSiguinte").text()!="Finalizar"){
+            let sele =-1
+            sele = seleccion//$('input[name="radios"]:checked').val();
+            if (seleccion==undefined){
+               alert("Seleccione una respuesta")
+            }else{
+               let resp=0
+               resp=F_preg[nroAdivinanza].respuesta
+               if (resp==seleccion){
+                  resultado++;
+                  $("#emNroAdiv").text(resultado);
+               }
+               
+               /*
+               let sele =0
+               sele = $('input[name="radios"]:checked').val();
+               if (sele==undefined){
+                  alert("Seleccione una respuesta")
+               }else{
+                  let resp=0
+                  resp=F_adiv[nroAdivinanza].respuesta
+                  if (resp==sele){
+                     resultado++;
+                     $("#emNroAdiv").text(resultado);
+                  }
+                  */
+                  siguinteAdivinanza()
+                  if(parseInt($("#idAdivinanza").text())==F_preg.length){
+                     $("#botonSiguinte").text("Finalizar") ;
+                  }
+               }
+            
+         }else{//$("#botonSiguinte").text()!="Finalizar")
+               let resp=0
+               resp=F_preg[nroAdivinanza].respuesta
+               if (resp==seleccion){
+                  resultado++;
+                  $("#emNroAdiv").text(resultado);
+               }
+            
+            
+            $("#idPadivinanza").text("Ha finalizado el Juego, el resultado es "+ $("#ress").text())
+            $("#contRadio").hide();
+            $("#botonSiguinte").hide();
+            $("#div_acierto").hide();
+            $("#divNroAdiv").hide();
+         }
       }
-      
    });
 
    function siguinteAdivinanza(){
-         
-      if (nroAdivinanza==-1){
-        // alert(nroAdivinanza)
-         
-           
-      }else{
-         for (i=1;i<5;i++){
-            $("#radio").remove();
-            $("#pe").remove();
+      if ($("#idTipoJuego").text()=="Juego de Adivinanza"){      
+         if (nroAdivinanza==-1){
+         // alert(nroAdivinanza)
+            
+            
+         }else{
+            for (i=1;i<5;i++){
+               $("#radio").remove();
+               $("#pe").remove();
+            }
          }
-      }
-//actualizar el nro de adivinanza en el circulo
-      $("#divRespuesta").hide();
-      nroAdivinanza++;
-      $("#idAdivinanza").text(nroAdivinanza+1);//redondel 
-      $("#emCantadivi").text(F_adiv.length);//contador de resultado
-      //id="emNroAdiv" >0</em> de <em id="emCantadivi
+         //actualizar el nro de adivinanza en el circulo
+         $("#divRespuesta").hide();
+         nroAdivinanza++;
+         $("#idAdivinanza").text(nroAdivinanza+1);//redondel 
+         $("#emCantadivi").text(F_adiv.length);//contador de resultado
+         //id="emNroAdiv" >0</em> de <em id="emCantadivi
 
-      const preg=F_adiv[nroAdivinanza].pregunta;         
-      $("#idPadivinanza").text(preg);
-         
-      for(i=0;i<F_adiv[nroAdivinanza].opciones.length;i++){
-         //contRadio    
-         let valu= F_adiv[nroAdivinanza].opciones[i];
-         $('#contRadio')
-            .append('<p id="pe"><input class="radi" type="radio" id="idradio'+i+'" name="radios" value="'+i+'">'+valu+' </p>')
-                                                            //   id="radio"'+i+'" name
-        }
-            //<p><input class="radi" type="radio" name="disp" id="radios">Museo</p>
-      //alert(F_adiv[nroAdivinanza].opciones[2])
-      $("#botonSiguinte").hide();  // true para desactivarlo o false para volverlo a activar
-   }
+         const preg=F_adiv[nroAdivinanza].pregunta;         
+         $("#idPadivinanza").text(preg);
+            
+         for(i=0;i<F_adiv[nroAdivinanza].opciones.length;i++){
+            //contRadio    
+            let valu= F_adiv[nroAdivinanza].opciones[i];
+            $('#contRadio')
+               .append('<p id="pe"><input class="radi" type="radio" id="idradio'+i+'" name="radios" value="'+i+'">'+valu+' </p>')
+                                                               //   id="radio"'+i+'" name
+         }
+               //<p><input class="radi" type="radio" name="disp" id="radios">Museo</p>
+         //alert(F_adiv[nroAdivinanza].opciones[2])
+         $("#botonSiguinte").hide();  // true para desactivarlo o false para volverlo a activar
+      }else{
+         //multiple choice
+         if (nroAdivinanza==-1){
+            // alert(nroAdivinanza)
+               
+               
+            }else{
+               for (i=1;i<5;i++){
+                  $("#radio").remove();
+                  $("#pe").remove();
+               }
+            }
+            //actualizar el nro de adivinanza en el circulo
+            $("#divRespuesta").hide();
+            nroAdivinanza++;
+            $("#idAdivinanza").text(nroAdivinanza+1);//redondel 
+            $("#emCantadivi").text(F_preg.length);//contador de resultado
+            //id="emNroAdiv" >0</em> de <em id="emCantadivi
+   
+            const preg=F_preg[nroAdivinanza].pregunta;         
+            $("#idPadivinanza").text(preg);
+               
+            for(i=0;i<F_preg[nroAdivinanza].opciones.length;i++){
+               //contRadio    
+               let valu= F_preg[nroAdivinanza].opciones[i];
+               $('#contRadio')
+                  .append('<p id="pe"><input class="radi" type="radio" id="idradio'+i+'" name="radios" value="'+i+'">'+valu+' </p>')
+                                                                  //   id="radio"'+i+'" name
+            }
+                  //<p><input class="radi" type="radio" name="disp" id="radios">Museo</p>
+            //alert(F_adiv[nroAdivinanza].opciones[2])
+            $("#botonSiguinte").hide();  // true para desactivarlo o false para volverlo a activar
+      };
+
+   };
+
+
+
+
+
    $("#botonReiniciar").click(function(){
       location.reload();
    });
